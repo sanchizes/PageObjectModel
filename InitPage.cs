@@ -9,13 +9,12 @@ namespace PageObjectModel
 {
     public class InitPage : BasePage
     {
-        public HeaderPage header { get; private set; }
-        public LoginPage login { get; private set; }
+        public HeaderPage header = new HeaderPage(driver);
+        public LoginPage login = new LoginPage(driver);
 
         public InitPage(IWebDriver driver) : base(driver) 
         {
-            header = new HeaderPage(driver);
-            login = new LoginPage(driver);
+
         }
     }
 }

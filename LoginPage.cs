@@ -11,7 +11,22 @@ namespace PageObjectModel
     {
         public LoginPage(IWebDriver driver) : base(driver) {}
 
-        private IWebElement btnGoogle = driver.FindElement(By.XPath("//button[@type=\"button\" and @title=\"Google\"]"));
+        /*Знаходження елемента через лямбда-вираз властивості 
+        private IWebElement btnGoogle => driver.FindElement(By.ClassName("button"));
+        */
+
+        private IWebElement btnGoogle
+        {
+            get { return driver.FindElement(By.XPath("//button[@class=\"button button--medium button--gray button--with-icon\"]")); }
+        }
+
+        //Знаходження елемента окремим методом InitElement(), але через це, цей метод також потрібно викликати в класі Authorization, перед методом Click()
+        //private IWebElement btnGoogle;
+
+        //public void InitElement()
+        //{
+        //    btnGoogle = driver.FindElement(By.XPath("//button[@class=\"button button--medium button--gray button--with-icon\"]"));
+        //}
 
         public void ClickGoogle() => btnGoogle.Click();
     }
