@@ -17,7 +17,7 @@ namespace PageObjectModel
 
         private IWebElement btnGoogle
         {
-            get { return driver.FindElement(By.XPath("//button[@class=\"button button--medium button--gray button--with-icon\"]")); }
+            get { return driver.FindElement(By.XPath("//!button[@class=\"button button--medium button--gray button--with-icon\"]")); }
         }
 
         //Знаходження елемента окремим методом InitElement(), але через це, цей метод також потрібно викликати в класі Authorization, перед методом Click()
